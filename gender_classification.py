@@ -1,6 +1,5 @@
 from sklearn import tree
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
+
 #Height(Inches),Weight(Kilo), Shoe-Size
 data = [
     [170, 65, 42],
@@ -34,20 +33,6 @@ labels = [
 
 clf = tree.DecisionTreeClassifier()
 clf.fit(data,labels)
-
-# Split the data into training and test sets
-data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size=0.3, random_state=42)
-
-# Train the decision tree classifier
-clf = tree.DecisionTreeClassifier()
-clf.fit(data_train, labels_train)
-
-# Make predictions on the test set
-gender_pred = clf.predict(data_test)
-
-# Evaluate the model
-accuracy = accuracy_score(labels_test, gender_pred)
-print("Accuracy: ", accuracy)
 
 def user_input():
     while True:
